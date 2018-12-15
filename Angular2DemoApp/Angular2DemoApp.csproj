@@ -70,6 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\app\Employee\employee.component.html" />
+    <Content Include="src\app\Employee\employeeCount.component.css" />
+    <Content Include="src\app\Employee\employeeCount.component.html" />
     <Content Include="src\app\Employee\employeelist.component.css" />
     <Content Include="src\app\Employee\employeelist.component.html" />
     <Content Include="src\favicon.ico" />
@@ -102,6 +104,7 @@
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\Employee\employee.component.ts" />
+    <TypeScriptCompile Include="src\app\Employee\employeecount.component.ts" />
     <TypeScriptCompile Include="src\app\Employee\employeelist.component.ts" />
     <TypeScriptCompile Include="src\app\Employee\employeeTitle.pipe.ts" />
     <TypeScriptCompile Include="src\main.ts" />
