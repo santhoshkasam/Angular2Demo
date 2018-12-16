@@ -14,6 +14,7 @@ var employee_service_1 = require("./employee.service");
 var EmployeelistComponent = /** @class */ (function () {
     function EmployeelistComponent(_employeeService) {
         this._employeeService = _employeeService;
+        this.statusMessage = 'Loading data, please wait';
         this.selectedEmployeeCountRadioButton = 'All';
         //this.employees = [
         //  { code: '0129578', name: 'Santosh', gender: 'Male', dateOfBirth: '04/19/2010', annualSalary: 1002.23 },
@@ -23,10 +24,12 @@ var EmployeelistComponent = /** @class */ (function () {
     }
     EmployeelistComponent.prototype.ngOnInit = function () {
         var _this = this;
-        //(this._employeeService.getEmployees().subscribe((employeeData) => this.employees == employeeData));
         this._employeeService.getEmployees().subscribe(function (data) {
             _this.employees = data;
             console.log(data);
+        }, function (error) {
+            _this.statusMessage = 'Problem with the service. Please try again after sometime.';
+            console.error(error);
         });
     };
     EmployeelistComponent.prototype.trackEmployeeCode = function (index, employee) {

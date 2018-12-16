@@ -11,7 +11,7 @@ import { EmployeeService } from './employee.service';
 
 export class EmployeelistComponent implements OnInit {
   employees: IEmployee[];
-
+  statusMessage: string = 'Loading data, please wait';
 
   constructor(private _employeeService: EmployeeService) {
     //this.employees = [
@@ -21,10 +21,12 @@ export class EmployeelistComponent implements OnInit {
     //];
   }
   ngOnInit() {
-    //(this._employeeService.getEmployees().subscribe((employeeData) => this.employees == employeeData));
     this._employeeService.getEmployees().subscribe((data: IEmployee[]) => {
       this.employees = data;
       console.log(data);
+    }, (error) => {
+        this.statusMessage = 'Problem with the service. Please try again after sometime.';
+        console.error(error)
     });
   }
 
