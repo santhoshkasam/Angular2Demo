@@ -1,24 +1,32 @@
-﻿<div>
-  <h1>{{ pageHeader?pageHeader:"No Header"}}</h1>
-  <h1>{{getFullName()}}</h1>
-  <!--<img src="{{}}" alt="Alternate Text" />-->
-  <my-employee></my-employee>
-  <button [disabled]='isDisabled'>Click me</button>
-  <button [class]='classesToApply'>Class Binding</button>
-  <br />
-  <button [class.boldClass]='isBoldClass'>Conditional Class Binding</button>
-  <br />
-  <button [ngClass]='addClasses()'>Ng Class Binding</button>
-  <br />
-  <button (click)='onClick()'>Click Me</button>
-  <br />
-  Two Way Binding
-  <input type="text" name="name" [value]="name" (input)="name=$event.target.value" />
-  <input type="text" name="name" [(ngModel)]="name" />
+﻿<!--<div>
+<h1>{{ pageHeader?pageHeader:"No Header"}}</h1>
+   <h1>{{getFullName()}}</h1>
+   <img src="{{}}" alt="Alternate Text" />
+   <my-employee></my-employee>
+   <button [disabled]='isDisabled'>Click me</button>
+   <button [class]='classesToApply'>Class Binding</button>
+   <br />
+   <button [class.boldClass]='isBoldClass'>Conditional Class Binding</button>
+   <br />
+   <button [ngClass]='addClasses()'>Ng Class Binding</button>
+   <br />
+   <button (click)='onClick()'>Click Me</button>
+   <br />
+   Two Way Binding
+   <input type="text" name="name" [value]="name" (input)="name=$event.target.value" />
+   <input type="text" name="name" [(ngModel)]="name" />
 
-  You Entered: {{name}}
-  <br />
-  <br />
-  <list-employee></list-employee>
+   You Entered: {{name}}
+   <br />
+   <br />
+   <list-employee></list-employee>
 
+ </div>-->
+<div style="padding:5px">
+  <ul class="nav nav-tabs">
+    <li routerLinkActive="active" ><a routerLink="home">Home</a></li>
+    <li routerLinkActive="active" ><a routerLink="employees">Employees</a></li>
+
+  </ul>
+  <router-outlet></router-outlet>
 </div>

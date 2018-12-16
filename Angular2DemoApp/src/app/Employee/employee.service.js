@@ -20,7 +20,7 @@ var EmployeeService = /** @class */ (function () {
         this._http = _http;
     }
     EmployeeService.prototype.getEmployees = function () {
-        return this._http.get("http://localhost:64608/api/employeess/")
+        return this._http.get("http://localhost:64608/api/employees/")
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
