@@ -104,6 +104,8 @@
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\Employee\employee.component.ts" />
+    <TypeScriptCompile Include="src\app\Employee\employee.service.ts" />
+    <TypeScriptCompile Include="src\app\Employee\employee.ts" />
     <TypeScriptCompile Include="src\app\Employee\employeecount.component.ts" />
     <TypeScriptCompile Include="src\app\Employee\employeelist.component.ts" />
     <TypeScriptCompile Include="src\app\Employee\employeeTitle.pipe.ts" />

@@ -10,22 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var employee_service_1 = require("./employee.service");
 var EmployeelistComponent = /** @class */ (function () {
-    function EmployeelistComponent() {
+    function EmployeelistComponent(_employeeService) {
+        this._employeeService = _employeeService;
         this.selectedEmployeeCountRadioButton = 'All';
-        this.employees = [
-            { code: '0129578', name: 'Santosh', age: 33, gender: 'Male', doj: '04/19/2010', salary: '1002.23' },
-            { code: '0129901', name: 'Arun', age: 34, gender: 'Male', doj: '01/26/2010', salary: '1002' },
-            { code: '0158133', name: 'Anisha', age: 33, gender: 'Female', doj: '04/19/2012', salary: '1002.23565' },
-        ];
+        //this.employees = [
+        //  { code: '0129578', name: 'Santosh', gender: 'Male', dateOfBirth: '04/19/2010', annualSalary: 1002.23 },
+        //  { code: '0129901', name: 'Arun', gender: 'Male', dateOfBirth: '01/26/2010', annualSalary: 1002 },
+        //  { code: '0158133', name: 'Anisha', gender: 'Female', dateOfBirth: '04/19/2012', annualSalary: 1002.23565 },
+        //];
     }
-    EmployeelistComponent.prototype.getEmployees = function () {
-        this.employees = [
-            { code: '0129578', name: 'Santosh', age: 33, gender: 'Male', doj: '04/19/2010', salary: '1002.23' },
-            { code: '0129901', name: 'Arun', age: 34, gender: 'Male', doj: '01/26/2010', salary: '1002' },
-            { code: '0158133', name: 'Anisha', age: 33, gender: 'Female', doj: '04/19/2012', salary: '1002.23565' },
-            { code: '0160499', name: 'Ganesh', age: 34, gender: 'Male', doj: '04/19/2012', salary: '10000' },
-        ];
+    EmployeelistComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        //(this._employeeService.getEmployees().subscribe((employeeData) => this.employees == employeeData));
+        this._employeeService.getEmployees().subscribe(function (data) {
+            _this.employees = data;
+            console.log(data);
+        });
     };
     EmployeelistComponent.prototype.trackEmployeeCode = function (index, employee) {
         return employee.code;
@@ -46,9 +48,10 @@ var EmployeelistComponent = /** @class */ (function () {
         core_1.Component({
             selector: 'list-employee',
             templateUrl: 'app/employee/employeelist.component.html',
-            styleUrls: ['app/employee/employeelist.component.css']
+            styleUrls: ['app/employee/employeelist.component.css'],
+            providers: [employee_service_1.EmployeeService]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [employee_service_1.EmployeeService])
     ], EmployeelistComponent);
     return EmployeelistComponent;
 }());
